@@ -1,0 +1,53 @@
+{
+  "reaction": "H2 + D2 -> 2 HD",
+  "method": "B3LYP/6-31G(d)",
+  "temperature_K": 298.15,
+  "pressure_Pa": 101325.0,
+  "optimized_HH_distance_angstrom": 0.7427882124403898,
+  "species": {
+    "H2": {
+      "electronic_energy_hartree": -1.175482410917166,
+      "gibbs_free_energy_hartree": -1.1768247244425576,
+      "gibbs_free_energy_kj_mol": -3089.7528847431063,
+      "zpe_hartree": 0.010144960897093868,
+      "frequency_cm-1": [
+        4453.123101143427
+      ],
+      "symmetry_number": 2,
+      "masses_u": [
+        1.00782503223,
+        1.00782503223
+      ]
+    },
+    "D2": {
+      "electronic_energy_hartree": -1.175482410917166,
+      "gibbs_free_energy_hartree": -1.1814276915292288,
+      "gibbs_free_energy_kj_mol": -3101.837973150096,
+      "zpe_hartree": 0.007176327359857558,
+      "frequency_cm-1": [
+        3150.0436001388393
+      ],
+      "symmetry_number": 2,
+      "masses_u": [
+        2.01410177812,
+        2.01410177812
+      ]
+    },
+    "HD": {
+      "electronic_energy_hartree": -1.175482410917166,
+      "gibbs_free_energy_hartree": -1.1796821332436445,
+      "gibbs_free_energy_kj_mol": -3097.2550105080372,
+      "zpe_hartree": 0.008786919423523758,
+      "frequency_cm-1": [
+        3857.0117982404963
+      ],
+      "symmetry_number": 1,
+      "masses_u": [
+        1.00782503223,
+        2.01410177812
+      ]
+    }
+  },
+  "delta_g_hartree": -0.0011118505155025549,
+  "delta_g_kj_mol": -2.9191631228723494
+}
