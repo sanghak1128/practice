@@ -13,6 +13,24 @@ At 298.15 K and 1 atm in the gas phase,
 The negative value indicates that the equilibrium is thermodynamically
 favorable toward HD under the stated model.
 
+## Reaction Gibbs-energy decomposition
+
+The values below use the same stoichiometric combination,
+\(2\mathrm{HD} - \mathrm{H_2} - \mathrm{D_2}\). The electronic term is
+zero because all three isotopologues have the same electronic Hamiltonian
+and optimized electronic energy at this level of theory.
+
+| Contribution | Delta G (Eh) | Delta G (kJ mol^-1) |
+| --- | ---: | ---: |
+| Electronic | 0.0000000000 | 0.000 |
+| Translational | -0.0001664508 | -0.437 |
+| Rotational | -0.0011979505 | -3.145 |
+| Vibrational | +0.0002525508 | +0.663 |
+| **Total** | **-0.0011118505** | **-2.919** |
+
+Thus, the favorable free-energy change is dominated by the rotational term;
+the vibrational term partly offsets it.
+
 ## Method
 
 - Electronic structure: B3LYP/6-31G(d), closed-shell RKS.

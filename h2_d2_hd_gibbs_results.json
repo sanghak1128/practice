@@ -7,9 +7,15 @@
   "species": {
     "H2": {
       "electronic_energy_hartree": -1.175482410917166,
-      "gibbs_free_energy_hartree": -1.1768247244425576,
-      "gibbs_free_energy_kj_mol": -3089.7528847431063,
+      "gibbs_free_energy_hartree": -1.1768247244425574,
+      "gibbs_free_energy_kj_mol": -3089.7528847431054,
       "zpe_hartree": 0.010144960897093868,
+      "gibbs_components_hartree": {
+        "electronic": -1.175482410917166,
+        "translational": -0.01098136969132514,
+        "rotational": -0.0005059047307213405,
+        "vibrational": 0.010144960896654988
+      },
       "frequency_cm-1": [
         4453.123101143427
       ],
@@ -24,6 +30,12 @@
       "gibbs_free_energy_hartree": -1.1814276915292288,
       "gibbs_free_energy_kj_mol": -3101.837973150096,
       "zpe_hartree": 0.007176327359857558,
+      "gibbs_components_hartree": {
+        "electronic": -1.175482410917166,
+        "translational": -0.011961969679523435,
+        "rotational": -0.0011596380561868717,
+        "vibrational": 0.007176327123647655
+      },
       "frequency_cm-1": [
         3150.0436001388393
       ],
@@ -38,6 +50,12 @@
       "gibbs_free_energy_hartree": -1.1796821332436445,
       "gibbs_free_energy_kj_mol": -3097.2550105080372,
       "zpe_hartree": 0.008786919423523758,
+      "gibbs_components_hartree": {
+        "electronic": -1.175482410917166,
+        "translational": -0.011554895086397652,
+        "rotational": -0.0014317466558123573,
+        "vibrational": 0.008786919415731613
+      },
       "frequency_cm-1": [
         3857.0117982404963
       ],
@@ -48,6 +66,18 @@
       ]
     }
   },
-  "delta_g_hartree": -0.0011118505155025549,
-  "delta_g_kj_mol": -2.9191631228723494
+  "delta_g_hartree": -0.001111850515502777,
+  "delta_g_kj_mol": -2.9191631228729324,
+  "delta_g_components_hartree": {
+    "electronic": 0.0,
+    "translational": -0.00016645080194672805,
+    "rotational": -0.0011979505247165026,
+    "vibrational": 0.00025255081116058297
+  },
+  "delta_g_components_kj_mol": {
+    "electronic": 0.0,
+    "translational": -0.437016519793394,
+    "rotational": -3.1452186656561025,
+    "vibrational": 0.6630720625769034
+  }
 }

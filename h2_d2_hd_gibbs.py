@@ -69,17 +69,21 @@ def gibbs_from_hessian(mol, hessian, masses_u: np.ndarray, symmetry_number: int)
         reduced_temperatures * exp_term / (1.0 - exp_term)
     )
 
-    gibbs = (
-        e0
-        + enthalpy_trans - TEMPERATURE_K * entropy_trans
-        + enthalpy_rot - TEMPERATURE_K * entropy_rot
-        + enthalpy_vib - TEMPERATURE_K * entropy_vib
-    )
+    gibbs_components = {
+        "electronic": e0,
+        "translational": enthalpy_trans - TEMPERATURE_K * entropy_trans,
+        "rotational": enthalpy_rot - TEMPERATURE_K * entropy_rot,
+        "vibrational": enthalpy_vib - TEMPERATURE_K * entropy_vib,
+    }
+    gibbs = sum(gibbs_components.values())
     return {
         "electronic_energy_hartree": e0,
         "gibbs_free_energy_hartree": float(gibbs),
         "gibbs_free_energy_kj_mol": float(gibbs * HARTREE_TO_KJMOL),
         "zpe_hartree": float(zpe),
+        "gibbs_components_hartree": {
+            name: float(value) for name, value in gibbs_components.items()
+        },
         "frequency_cm-1": [float(x) for x in np.asarray(vib["freq_wavenumber"]).real],
         "symmetry_number": symmetry_number,
         "masses_u": [float(x) for x in masses_u],
@@ -125,6 +129,14 @@ def main() -> None:
         mol_energy = original_mol_energy
 
     delta_g_hartree = 2.0 * species["HD"]["gibbs_free_energy_hartree"] - species["H2"]["gibbs_free_energy_hartree"] - species["D2"]["gibbs_free_energy_hartree"]
+    delta_g_components_hartree = {
+        component: (
+            2.0 * species["HD"]["gibbs_components_hartree"][component]
+            - species["H2"]["gibbs_components_hartree"][component]
+            - species["D2"]["gibbs_components_hartree"][component]
+        )
+        for component in ("electronic", "translational", "rotational", "vibrational")
+    }
     results = {
         "reaction": "H2 + D2 -> 2 HD",
         "method": "B3LYP/6-31G(d)",
@@ -134,6 +146,13 @@ def main() -> None:
         "species": species,
         "delta_g_hartree": float(delta_g_hartree),
         "delta_g_kj_mol": float(delta_g_hartree * HARTREE_TO_KJMOL),
+        "delta_g_components_hartree": {
+            name: float(value) for name, value in delta_g_components_hartree.items()
+        },
+        "delta_g_components_kj_mol": {
+            name: float(value * HARTREE_TO_KJMOL)
+            for name, value in delta_g_components_hartree.items()
+        },
     }
     Path("h2_d2_hd_gibbs_results.json").write_text(json.dumps(results, indent=2) + "\n")
     print(json.dumps(results, indent=2))
